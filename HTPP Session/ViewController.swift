@@ -20,7 +20,14 @@ class ViewController: UIViewController {
     }
     
     func loadRequest() {
-        guard let searchContent = searchTextField.text else { return }
+        guard var searchContent = searchTextField.text else { return }
+        var textArray = ""
+        for symbol in searchContent {
+            if symbol != " " {
+                textArray.append(symbol)
+            }
+        }
+        searchContent = textArray
         let url = URL(string: "https://itunes.apple.com/search?term=\(searchContent)?")!
         let task = URLSession.shared.dataTask(with: url) { data, reponse, error in
             guard let data = data else {
