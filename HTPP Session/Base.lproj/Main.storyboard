@@ -27,7 +27,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoO-K7-TY2">
                                 <rect key="frame" x="100" y="164" width="214" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="1" green="0.084040851152848539" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y0h-Vq-gke"/>
                                 </connections>
@@ -55,6 +57,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="searchButton" destination="ZoO-K7-TY2" id="yhh-s2-C4S"/>
                         <outlet property="searchTextField" destination="0m9-zf-1zU" id="SSE-vw-Gfc"/>
                         <outlet property="textView" destination="yvK-kt-XOG" id="OLy-X8-6ui"/>
                     </connections>

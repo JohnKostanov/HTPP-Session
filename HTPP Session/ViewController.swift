@@ -11,13 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var textView: UITextView!
+    @IBOutlet var searchButton: UIButton!
     
-    
-    
+    var touchCounter = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadRequest()
     }
     
     func loadRequest() {
@@ -33,7 +32,6 @@ class ViewController: UIViewController {
                 return
             }
             
-            //print(stringData)
             DispatchQueue.main.async {
                 self.textView.text = "\(stringData)"
             }
@@ -43,8 +41,21 @@ class ViewController: UIViewController {
     
 
     @IBAction func searchButton(_ sender: UIButton) {
+        touchCounter += 1
+        switch touchCounter {
+        case  1:
+            UIView.animate(withDuration: 1) {
+                self.searchButton.backgroundColor = .green
+            }
+        case 2:
+            UIView.animate(withDuration: 1) {
+                self.searchButton.backgroundColor = .blue
+            }
+        default:
+            touchCounter = 0
+        }
+    
         loadRequest()
-        
     }
     
 }
