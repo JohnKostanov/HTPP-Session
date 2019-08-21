@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             }
         }
         searchContent = textArray
-        let url = URL(string: "https://itunes.apple.com/search?term=\(searchContent)?")!
+        let url = URL(string: "https://itunes.apple.com/search?term=\(searchContent)")!
         let task = URLSession.shared.dataTask(with: url) { data, reponse, error in
             guard let data = data else {
                 print(#function, #line, error?.localizedDescription ?? "no description")
