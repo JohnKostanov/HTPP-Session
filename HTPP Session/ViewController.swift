@@ -9,15 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var searchTextField: UITextField!
+    @IBOutlet var textView: UITextView!
     
-    let url = URL(string: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadRequest()
+        //loadRequest()
     }
     
     func loadRequest() {
+        guard let searchContent = searchTextField.text else { return }
+        let url = URL(string: "https://itunes.apple.com/search?term=\(searchContent)?")!
         let task = URLSession.shared.dataTask(with: url) { data, reponse, error in
             guard let data = data else {
                 print(#function, #line, error?.localizedDescription ?? "no description")
@@ -28,12 +33,19 @@ class ViewController: UIViewController {
                 return
             }
             
-            print(stringData)
+            //print(stringData)
+            DispatchQueue.main.async {
+                self.textView.text = "\(stringData)"
+            }
         }
         task.resume()
     }
     
 
-
+    @IBAction func searchButton(_ sender: UIButton) {
+        loadRequest()
+        
+    }
+    
 }
 
