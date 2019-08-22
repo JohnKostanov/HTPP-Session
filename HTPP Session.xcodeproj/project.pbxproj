@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5249D1B2230E79F2001229E6 /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249D1B1230E79F2001229E6 /* PhotoInfo.swift */; };
+		5249D1B5230EAD17001229E6 /* URL + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5249D1B4230EAD17001229E6 /* URL + Extension.swift */; };
 		52E6C941230D97F6001E4B6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E6C940230D97F6001E4B6C /* AppDelegate.swift */; };
 		52E6C943230D97F6001E4B6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E6C942230D97F6001E4B6C /* ViewController.swift */; };
 		52E6C946230D97F6001E4B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E6C944230D97F6001E4B6C /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5249D1B1230E79F2001229E6 /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
+		5249D1B4230EAD17001229E6 /* URL + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Extension.swift"; sourceTree = "<group>"; };
 		52E6C93D230D97F6001E4B6C /* HTPP Session.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HTPP Session.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E6C940230D97F6001E4B6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E6C942230D97F6001E4B6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5249D1B0230E79A6001229E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5249D1B1230E79F2001229E6 /* PhotoInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5249D1B3230EACF4001229E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5249D1B4230EAD17001229E6 /* URL + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		52E6C934230D97F6001E4B6C = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +74,8 @@
 		52E6C93F230D97F6001E4B6C /* HTPP Session */ = {
 			isa = PBXGroup;
 			children = (
+				5249D1B3230EACF4001229E6 /* Extensions */,
+				5249D1B0230E79A6001229E6 /* Model */,
 				52E6C940230D97F6001E4B6C /* AppDelegate.swift */,
 				52E6C942230D97F6001E4B6C /* ViewController.swift */,
 				52E6C944230D97F6001E4B6C /* Main.storyboard */,
@@ -135,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5249D1B2230E79F2001229E6 /* PhotoInfo.swift in Sources */,
 				52E6C943230D97F6001E4B6C /* ViewController.swift in Sources */,
 				52E6C941230D97F6001E4B6C /* AppDelegate.swift in Sources */,
+				5249D1B5230EAD17001229E6 /* URL + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

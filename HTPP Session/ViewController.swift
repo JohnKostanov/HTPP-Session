@@ -13,6 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet var textView: UITextView!
     @IBOutlet var searchButton: UIButton!
     
+    let baseURL = URL(string: "https://api.nasa.gov/planetary/apod")!
+    let query = [
+        "api_key": "DEMO_KEY",
+        "date": "2019-08-22"
+    ]
+    
     var touchCounter = 0
 
     override func viewDidLoad() {
@@ -20,27 +26,33 @@ class ViewController: UIViewController {
     }
     
     func loadRequest() {
-        guard var searchContent = searchTextField.text else { return }
-        var textArray = ""
-        for symbol in searchContent {
-            if symbol != " " {
-                textArray.append(symbol)
-            }
-        }
-        searchContent = textArray
-        let url = URL(string: "https://itunes.apple.com/search?term=\(searchContent)")!
+//        guard var searchContent = searchTextField.text else { return }
+//        var textArray = ""
+//        for symbol in searchContent {
+//            if symbol != " " {
+//                textArray.append(symbol)
+//            }
+//        }
+//        searchContent = textArray
+        let url = baseURL.withQueries(query)!
         let task = URLSession.shared.dataTask(with: url) { data, reponse, error in
             guard let data = data else {
                 print(#function, #line, error?.localizedDescription ?? "no description")
                 return
             }
-            guard let stringData = String(data: data, encoding: .utf8) else {
-                print(#function, #line, "ERROR: can't decode \(data)")
+            let decoder = JSONDecoder()
+            guard let songInfo = try? decoder.decode(PhotoInfo.self, from: data) else {
+                guard let stringData = String(data: data, encoding: .utf8) else {
+                    print(#function, #line, "ERROR: can't decode \(data) as UTF8")
+                    return
+                }
+                
+                print(#function, #line, "ERROR: can't decode data from \(stringData)")
                 return
             }
             
             DispatchQueue.main.async {
-                self.textView.text = "\(stringData)"
+                self.textView.text = "\(songInfo)"
             }
         }
         task.resume()
